@@ -24,6 +24,8 @@
 		A47F51951A8757C4007656E7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A47F51941A8757C4007656E7 /* libz.dylib */; };
 		A47F51971A8757DC007656E7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A47F51961A8757DC007656E7 /* libsqlite3.dylib */; };
 		A47F519A1A8BFB02007656E7 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A47F51991A8BFB02007656E7 /* ProfileViewController.m */; };
+		A4A748BA1A8C640800A1B2E9 /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A748B91A8C640800A1B2E9 /* UserProfile.m */; };
+		A4A748BD1A8C88AB00A1B2E9 /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A748BC1A8C88AB00A1B2E9 /* AddEventViewController.m */; };
 		A4C821EA1A86E3F600DD3FE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C821E91A86E3F600DD3FE4 /* main.m */; };
 		A4C821ED1A86E3F600DD3FE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C821EC1A86E3F600DD3FE4 /* AppDelegate.m */; };
 		A4C821F01A86E3F600DD3FE4 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C821EF1A86E3F600DD3FE4 /* MasterViewController.m */; };
@@ -66,6 +68,10 @@
 		A47F51961A8757DC007656E7 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		A47F51981A8BFB02007656E7 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		A47F51991A8BFB02007656E7 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		A4A748B81A8C640800A1B2E9 /* UserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfile.h; sourceTree = "<group>"; };
+		A4A748B91A8C640800A1B2E9 /* UserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfile.m; sourceTree = "<group>"; };
+		A4A748BB1A8C88AB00A1B2E9 /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
+		A4A748BC1A8C88AB00A1B2E9 /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
 		A4C821E41A86E3F600DD3FE4 /* AccelerateHackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccelerateHackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4C821E81A86E3F600DD3FE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4C821E91A86E3F600DD3FE4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -123,6 +129,8 @@
 				A47F51791A8745FB007656E7 /* EventList.m */,
 				A47F517B1A874785007656E7 /* Event.h */,
 				A47F517C1A874785007656E7 /* Event.m */,
+				A4A748B81A8C640800A1B2E9 /* UserProfile.h */,
+				A4A748B91A8C640800A1B2E9 /* UserProfile.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -170,6 +178,8 @@
 				A4C821EF1A86E3F600DD3FE4 /* MasterViewController.m */,
 				A4C821F11A86E3F600DD3FE4 /* DetailViewController.h */,
 				A4C821F21A86E3F600DD3FE4 /* DetailViewController.m */,
+				A4A748BB1A8C88AB00A1B2E9 /* AddEventViewController.h */,
+				A4A748BC1A8C88AB00A1B2E9 /* AddEventViewController.m */,
 				A4C821F41A86E3F600DD3FE4 /* Main.storyboard */,
 				A4C821F71A86E3F600DD3FE4 /* Images.xcassets */,
 				A4C821F91A86E3F600DD3FE4 /* LaunchScreen.xib */,
@@ -306,10 +316,12 @@
 			files = (
 				A4C821ED1A86E3F600DD3FE4 /* AppDelegate.m in Sources */,
 				A4C821F01A86E3F600DD3FE4 /* MasterViewController.m in Sources */,
+				A4A748BA1A8C640800A1B2E9 /* UserProfile.m in Sources */,
 				A47F519A1A8BFB02007656E7 /* ProfileViewController.m in Sources */,
 				A47F517A1A8745FB007656E7 /* EventList.m in Sources */,
 				A4C821EA1A86E3F600DD3FE4 /* main.m in Sources */,
 				A4C821F31A86E3F600DD3FE4 /* DetailViewController.m in Sources */,
+				A4A748BD1A8C88AB00A1B2E9 /* AddEventViewController.m in Sources */,
 				A47F51741A873E00007656E7 /* EventTableViewCell.m in Sources */,
 				A47F517D1A874785007656E7 /* Event.m in Sources */,
 			);

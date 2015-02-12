@@ -36,35 +36,34 @@
 
 - (IBAction)saveProfile:(id)sender {
     
+    _userProfile = [[UserProfile alloc] init];
+    _userProfile.userName = self.nameTextField.text;
+    _userProfile.groupName = self.groupNameTextField.text;
+
     PFUser *user = [PFUser user];
-    user.username = self.nameTextField.text;
-    user.password = self.nameTextField.text;
+    user.username = _userProfile.userName;
+    user.password = _userProfile.userName;
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             // Hooray! Let them use the app now.
             NSLog(@"Saved Parse User!!!!");
-            //    [self goToMasterView];
             [self performSegueWithIdentifier:@"SaveProfileSeque" sender:self];
 
         } else {
             NSString *errorString = [error userInfo][@"error"];
-            
-            // Show the errorString somewhere and let the user try again.
-            NSLog(@"Save Parse User error %@", errorString);
+            NSLog(@"Parse saveProfile error %@", errorString);
         }
     }];
 }
 
+#pragma mark - Segues
 
-- (void) goToMasterView
-{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *controller;
-    
-    controller = [storyboard instantiateViewControllerWithIdentifier: @"MasterViewController"];
-    
-    [self presentViewController:controller animated:YES completion:nil];
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"SaveProfileSeque"]) {
+        
+        [[segue destinationViewController] setUserProfile:_userProfile];
+    }
 }
 
 @end

@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "EventList.h"
-
+#import "UserProfile.h"
 @interface MasterViewController : UITableViewController
 
-
+@property (strong, nonatomic) UserProfile *userProfile;
 
 @end
 

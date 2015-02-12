@@ -13,8 +13,14 @@
 @property NSString *eventId;
 @property NSString *eventName;
 @property NSString *eventDate;
-@property NSString *eventImageUrl;
-@property NSInteger totalPeople;
+@property NSString *eventDescription;
+@property NSString *creator;
 @property NSInteger minPeople;
+@property NSInteger totalPeople;
+@property BOOL isActive;
+
+
+@property NSString *eventImageUrl;
+
 
 @end

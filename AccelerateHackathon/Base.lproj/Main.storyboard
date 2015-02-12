@@ -22,7 +22,7 @@
         <!--GameKick-->
         <scene sceneID="e85-rz-Onx">
             <objects>
-                <viewController id="hSH-b2-R9r" customClass="ProfileViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" id="hSH-b2-R9r" customClass="ProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FPX-tg-90B"/>
                         <viewControllerLayoutGuide type="bottom" id="ZPx-fe-1sb"/>
@@ -77,6 +77,88 @@
             </objects>
             <point key="canvasLocation" x="-110" y="60"/>
         </scene>
+        <!--Add Event View Controller-->
+        <scene sceneID="IOL-ef-OCt">
+            <objects>
+                <viewController storyboardIdentifier="AddEventViewController" id="E2L-TF-w1d" customClass="AddEventViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DQk-ky-sI4"/>
+                        <viewControllerLayoutGuide type="bottom" id="eiG-aB-6W7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="74U-DS-Suq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IB1-nc-DUa" userLabel="Event Name">
+                                <rect key="frame" x="22" y="113" width="277" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="typ-Mr-Zbc">
+                                <rect key="frame" x="22" y="443" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJI-Pd-aPn">
+                                <rect key="frame" x="137" y="510" width="46" height="30"/>
+                                <state key="normal" title="Create">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="createEvent:" destination="E2L-TF-w1d" eventType="touchUpInside" id="kh9-m0-ymf"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Y3-Zd-7Bb">
+                                <rect key="frame" x="22" y="86" width="46" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COo-0K-PEZ">
+                                <rect key="frame" x="22" y="151" width="36" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bek-9Y-BBi">
+                                <rect key="frame" x="22" y="344" width="88" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Min number of players" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igr-PI-NSw">
+                                <rect key="frame" x="22" y="414" width="172" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="0wF-Xe-QuM">
+                                <rect key="frame" x="0.0" y="174" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="445419302.94724703">
+                                    <!--2015-02-12 07:35:02 +0000-->
+                                </date>
+                            </datePicker>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pWQ-8w-hcM">
+                                <rect key="frame" x="22" y="376" width="277" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vbu-r8-kx3"/>
+                    <connections>
+                        <outlet property="descriptionTextField" destination="pWQ-8w-hcM" id="BGv-g3-ExL"/>
+                        <outlet property="eventDateTimePicker" destination="0wF-Xe-QuM" id="eoL-9D-4ne"/>
+                        <outlet property="eventNameTextField" destination="IB1-nc-DUa" id="WAS-12-dvf"/>
+                        <outlet property="minPeopleTextField" destination="typ-Mr-Zbc" id="xYl-Ev-0hj"/>
+                        <segue destination="pGg-6v-bdr" kind="custom" identifier="ShowAddedEventSeque" id="jsh-E0-m2q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rIm-gd-dL7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="352" y="830"/>
+        </scene>
         <!--Master-->
         <scene sceneID="VgW-fR-Quf">
             <objects>
@@ -127,6 +209,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="GameKick" id="tQt-TN-PWz"/>
+                    <connections>
+                        <segue destination="hSH-b2-R9r" kind="custom" identifier="ShowProfileSeque" id="oVP-wh-tU8"/>
+                        <segue destination="E2L-TF-w1d" kind="push" identifier="ShowAddEventSeque" id="Nje-2H-cKD"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cn-md-YlS" sceneMemberID="firstResponder"/>
             </objects>
@@ -202,4 +288,8 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="vvu-PY-p2j"/>
+        <segue reference="jsh-E0-m2q"/>
+    </inferredMetricsTieBreakers>
 </document>

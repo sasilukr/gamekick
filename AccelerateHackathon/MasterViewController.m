@@ -28,9 +28,16 @@
     
     self.eventlist = [[NSMutableArray alloc] init];
     // Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+//    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
+    UIBarButtonItem *profileButton = [[UIBarButtonItem alloc] initWithTitle:@"\u2699" style:UIBarButtonItemStylePlain target:self action:@selector(showProfile)];
+    
+    UIFont *customFont = [UIFont fontWithName:@"Helvetica" size:24.0];
+    NSDictionary *fontDictionary = @{UITextAttributeFont : customFont};
+    [profileButton setTitleTextAttributes:fontDictionary forState:UIControlStateNormal];
+    self.navigationItem.leftBarButtonItem = profileButton;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showAddEvent)];
     self.navigationItem.rightBarButtonItem = addButton;
     [self getEvents];
 
@@ -70,21 +77,49 @@
     
 }
 
+
+
+- (void)setUserProfile:(UserProfile *)newUserProfile
+{
+    
+    if (_userProfile != newUserProfile) {
+        _userProfile = newUserProfile;
+        
+         NSLog(@"MasterViewController userName %@", _userProfile.userName);
+
+        // TODO update list view
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (void)insertNewObject:(id)sender {
-    if (!self.eventlist) {
-        self.eventlist = [[NSMutableArray alloc] init];
-    }
-    Event *newEvent = [[Event alloc] init];
-    newEvent.eventName = @"My New Party";
-    newEvent.eventDate = @"My Birthday";
-    [self.eventlist insertObject:newEvent atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+- (void)showProfile
+{
+    NSLog(@"MasterViewController show profile view controller %@", _userProfile.userName);
+  
+    [self performSegueWithIdentifier:@"ShowProfileSeque" sender:self];
+    
+}
+
+- (void)showAddEvent
+{
+    
+    NSLog(@"MasterViewController show add event view controller %@", _userProfile.userName);
+    
+    [self performSegueWithIdentifier:@"ShowAddEventSeque" sender:self];
+    
+//    if (!self.eventlist) {
+//        self.eventlist = [[NSMutableArray alloc] init];
+//    }
+//    Event *newEvent = [[Event alloc] init];
+//    newEvent.eventName = @"My New Party";
+//    newEvent.eventDate = @"My Birthday";
+//    [self.eventlist insertObject:newEvent atIndex:0];
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - Segues

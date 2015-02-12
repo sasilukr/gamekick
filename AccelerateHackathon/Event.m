@@ -10,4 +10,8 @@
 
 @implementation Event
 
+- (NSString *)description {
+    return [NSString stringWithFormat: @"Event: Name=%@ Date=%@ Min People=%d", _eventName, _eventDate, _minPeople];
+}
+
 @end

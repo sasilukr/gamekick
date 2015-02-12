@@ -36,14 +36,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     [self configureView];
+    
+//    UIBarButtonItem *viewAllButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showEventList)];
+//    self.navigationItem.leftBarButtonItem = viewAllButton;
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+- (void)showEventList
+{
+    NSLog(@"DetailViewController show master view controller");
+    
+    [self performSegueWithIdentifier:@"ShowProfileSeque" sender:self];
+    
+}
+
 
 - (IBAction)joinEvent:(id)sender
 {
