@@ -46,8 +46,18 @@
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
-            // Hooray! Let them use the app now.
-            NSLog(@"Saved Parse User!!!!");
+            NSLog(@"Saved Parse User!!!! %@ ", user);
+            _userProfile.userId = user.objectId;
+
+            // Store the data
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:_userProfile.userId forKey:@"userId"];
+            [defaults setObject:_userProfile.userName forKey:@"userName"];
+            [defaults setObject:_userProfile.groupName forKey:@"groupName"];
+
+            [defaults synchronize];
+            
+            
             [self performSegueWithIdentifier:@"SaveProfileSeque" sender:self];
 
         } else {

@@ -65,7 +65,6 @@
                     event.eventImageUrl = result[@"image_url"];
                     event.totalPeople = [result[@"total_people"] integerValue];
                     event.minPeople = [result[@"min_people"] integerValue];
-                    NSLog(@"%@", result[@"eventDate"]);
                     [self.eventlist addObject:event];
                 }
                 [self.tableView reloadData];

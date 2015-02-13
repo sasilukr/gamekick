@@ -10,4 +10,8 @@
 
 @implementation UserProfile
 
+- (NSString *)description {
+    return [NSString stringWithFormat: @"UserProfile: userId=%@ userName=%@ groupName=%@", _userId, _userName, _groupName];
+}
+
 @end

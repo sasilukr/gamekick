@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		71BE959A1A8DB20B003B8BE0 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71BE95981A8DB20B003B8BE0 /* Bolts.framework */; };
 		71BE959B1A8DB20B003B8BE0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71BE95991A8DB20B003B8BE0 /* Parse.framework */; };
+		A42370211A8DB98300880721 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42370201A8DB98300880721 /* Bolts.framework */; };
 		A47F51741A873E00007656E7 /* EventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A47F51731A873E00007656E7 /* EventTableViewCell.m */; };
 		A47F517A1A8745FB007656E7 /* EventList.m in Sources */ = {isa = PBXBuildFile; fileRef = A47F51791A8745FB007656E7 /* EventList.m */; };
 		A47F517D1A874785007656E7 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = A47F517C1A874785007656E7 /* Event.m */; };
@@ -47,8 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		71BE95981A8DB20B003B8BE0 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		71BE95991A8DB20B003B8BE0 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		A423701C1A8DB93A00880721 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		A42370201A8DB98300880721 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		A47F51721A873E00007656E7 /* EventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableViewCell.h; sourceTree = "<group>"; };
 		A47F51731A873E00007656E7 /* EventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableViewCell.m; sourceTree = "<group>"; };
 		A47F51781A8745FB007656E7 /* EventList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventList.h; sourceTree = "<group>"; };
@@ -101,12 +102,12 @@
 				71BE959B1A8DB20B003B8BE0 /* Parse.framework in Frameworks */,
 				A47F518F1A8757AC007656E7 /* Security.framework in Frameworks */,
 				A47F518D1A8757A2007656E7 /* QuartzCore.framework in Frameworks */,
+				A42370211A8DB98300880721 /* Bolts.framework in Frameworks */,
 				A47F518B1A87579B007656E7 /* MobileCoreServices.framework in Frameworks */,
 				A47F51871A875793007656E7 /* CFNetwork.framework in Frameworks */,
 				A47F51881A875793007656E7 /* CoreGraphics.framework in Frameworks */,
 				A47F51891A875793007656E7 /* CoreLocation.framework in Frameworks */,
 				A47F51831A875780007656E7 /* AudioToolbox.framework in Frameworks */,
-				71BE959A1A8DB20B003B8BE0 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +139,9 @@
 		A4C821DB1A86E3F600DD3FE4 = {
 			isa = PBXGroup;
 			children = (
+				71BE95991A8DB20B003B8BE0 /* Parse.framework */,
+				A42370201A8DB98300880721 /* Bolts.framework */,
+				A423701C1A8DB93A00880721 /* Bolts.framework */,
 				A47F51961A8757DC007656E7 /* libsqlite3.dylib */,
 				A47F51941A8757C4007656E7 /* libz.dylib */,
 				A47F51921A8757BC007656E7 /* SystemConfiguration.framework */,
@@ -149,7 +153,6 @@
 				A47F51851A875793007656E7 /* CoreGraphics.framework */,
 				A47F51861A875793007656E7 /* CoreLocation.framework */,
 				A47F51821A875780007656E7 /* AudioToolbox.framework */,
-				71BE95981A8DB20B003B8BE0 /* Bolts.framework */,
 				71BE95991A8DB20B003B8BE0 /* Parse.framework */,
 				A4C821E61A86E3F600DD3FE4 /* AccelerateHackathon */,
 				A4C822031A86E3F600DD3FE4 /* AccelerateHackathonTests */,

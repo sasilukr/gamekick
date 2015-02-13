@@ -10,9 +10,10 @@
 #import <UIKit/UIKit.h>
 #import "Event.h"
 
-@interface EventList : NSMutableArray {
-    NSMutableArray *events;
-}
+@interface EventList : NSMutableArray
+
+@property NSMutableArray *events;
+
 
 + (EventList*) sharedInstance;
 - (UIImage*) imageForIndex: (NSInteger) index;
