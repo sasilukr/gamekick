@@ -15,8 +15,24 @@
 @implementation ProfileViewController
 
 - (void)viewDidLoad {
+
+    if ( !_userProfile ) {
+        _userProfile = [[UserProfile alloc] init];
+    }
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+//    NSString *userId = [defaults objectForKey:@"userId"];
+    NSString *userName = [defaults objectForKey:@"userName"];
+    NSString *groupName = [defaults objectForKey:@"groupName"];
+    
+    self.nameTextField.text = userName;
+    self.groupNameTextField.text = groupName;
+    _userProfile.userName = userName;
+    _userProfile.groupName = groupName;
+    
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,7 +52,6 @@
 
 - (IBAction)saveProfile:(id)sender {
     
-    _userProfile = [[UserProfile alloc] init];
     _userProfile.userName = self.nameTextField.text;
     _userProfile.groupName = self.groupNameTextField.text;
 
