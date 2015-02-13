@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71BE959A1A8DB20B003B8BE0 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71BE95981A8DB20B003B8BE0 /* Bolts.framework */; };
+		71BE959B1A8DB20B003B8BE0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71BE95991A8DB20B003B8BE0 /* Parse.framework */; };
 		A47F51741A873E00007656E7 /* EventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A47F51731A873E00007656E7 /* EventTableViewCell.m */; };
 		A47F517A1A8745FB007656E7 /* EventList.m in Sources */ = {isa = PBXBuildFile; fileRef = A47F51791A8745FB007656E7 /* EventList.m */; };
 		A47F517D1A874785007656E7 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = A47F517C1A874785007656E7 /* Event.m */; };
-		A47F51801A875712007656E7 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47F517E1A875712007656E7 /* Bolts.framework */; };
-		A47F51811A875713007656E7 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47F517F1A875712007656E7 /* Parse.framework */; };
 		A47F51831A875780007656E7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47F51821A875780007656E7 /* AudioToolbox.framework */; };
 		A47F51871A875793007656E7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47F51841A875793007656E7 /* CFNetwork.framework */; };
 		A47F51881A875793007656E7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47F51851A875793007656E7 /* CoreGraphics.framework */; };
@@ -47,14 +47,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		71BE95981A8DB20B003B8BE0 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		71BE95991A8DB20B003B8BE0 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		A47F51721A873E00007656E7 /* EventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableViewCell.h; sourceTree = "<group>"; };
 		A47F51731A873E00007656E7 /* EventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableViewCell.m; sourceTree = "<group>"; };
 		A47F51781A8745FB007656E7 /* EventList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventList.h; sourceTree = "<group>"; };
 		A47F51791A8745FB007656E7 /* EventList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventList.m; sourceTree = "<group>"; };
 		A47F517B1A874785007656E7 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		A47F517C1A874785007656E7 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
-		A47F517E1A875712007656E7 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../Downloads/parse-library-1.6.2/Bolts.framework"; sourceTree = "<group>"; };
-		A47F517F1A875712007656E7 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../Downloads/parse-library-1.6.2/Parse.framework"; sourceTree = "<group>"; };
 		A47F51821A875780007656E7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A47F51841A875793007656E7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		A47F51851A875793007656E7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -98,6 +98,7 @@
 				A47F51951A8757C4007656E7 /* libz.dylib in Frameworks */,
 				A47F51931A8757BC007656E7 /* SystemConfiguration.framework in Frameworks */,
 				A47F51911A8757B3007656E7 /* StoreKit.framework in Frameworks */,
+				71BE959B1A8DB20B003B8BE0 /* Parse.framework in Frameworks */,
 				A47F518F1A8757AC007656E7 /* Security.framework in Frameworks */,
 				A47F518D1A8757A2007656E7 /* QuartzCore.framework in Frameworks */,
 				A47F518B1A87579B007656E7 /* MobileCoreServices.framework in Frameworks */,
@@ -105,8 +106,7 @@
 				A47F51881A875793007656E7 /* CoreGraphics.framework in Frameworks */,
 				A47F51891A875793007656E7 /* CoreLocation.framework in Frameworks */,
 				A47F51831A875780007656E7 /* AudioToolbox.framework in Frameworks */,
-				A47F51811A875713007656E7 /* Parse.framework in Frameworks */,
-				A47F51801A875712007656E7 /* Bolts.framework in Frameworks */,
+				71BE959A1A8DB20B003B8BE0 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,8 +149,8 @@
 				A47F51851A875793007656E7 /* CoreGraphics.framework */,
 				A47F51861A875793007656E7 /* CoreLocation.framework */,
 				A47F51821A875780007656E7 /* AudioToolbox.framework */,
-				A47F517E1A875712007656E7 /* Bolts.framework */,
-				A47F517F1A875712007656E7 /* Parse.framework */,
+				71BE95981A8DB20B003B8BE0 /* Bolts.framework */,
+				71BE95991A8DB20B003B8BE0 /* Parse.framework */,
 				A4C821E61A86E3F600DD3FE4 /* AccelerateHackathon */,
 				A4C822031A86E3F600DD3FE4 /* AccelerateHackathonTests */,
 				A4C821E51A86E3F600DD3FE4 /* Products */,
@@ -449,6 +449,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/sasilukruangrongsorakai/Downloads/parse-library-1.6.2",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = AccelerateHackathon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -464,6 +465,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/sasilukruangrongsorakai/Downloads/parse-library-1.6.2",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = AccelerateHackathon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
