@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		71BE959A1A8DB20B003B8BE0 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71BE95981A8DB20B003B8BE0 /* Bolts.framework */; };
 		71BE959B1A8DB20B003B8BE0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71BE95991A8DB20B003B8BE0 /* Parse.framework */; };
-		A47F51741A873E00007656E7 /* EventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A47F51731A873E00007656E7 /* EventTableViewCell.m */; };
-		A47F517A1A8745FB007656E7 /* EventList.m in Sources */ = {isa = PBXBuildFile; fileRef = A47F51791A8745FB007656E7 /* EventList.m */; };
+		71BE959E1A8DC4A6003B8BE0 /* EventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BE959D1A8DC4A6003B8BE0 /* EventTableViewCell.m */; };
 		A47F517D1A874785007656E7 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = A47F517C1A874785007656E7 /* Event.m */; };
 		A47F51831A875780007656E7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47F51821A875780007656E7 /* AudioToolbox.framework */; };
 		A47F51871A875793007656E7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47F51841A875793007656E7 /* CFNetwork.framework */; };
@@ -49,10 +48,8 @@
 /* Begin PBXFileReference section */
 		71BE95981A8DB20B003B8BE0 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		71BE95991A8DB20B003B8BE0 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		A47F51721A873E00007656E7 /* EventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableViewCell.h; sourceTree = "<group>"; };
-		A47F51731A873E00007656E7 /* EventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableViewCell.m; sourceTree = "<group>"; };
-		A47F51781A8745FB007656E7 /* EventList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventList.h; sourceTree = "<group>"; };
-		A47F51791A8745FB007656E7 /* EventList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventList.m; sourceTree = "<group>"; };
+		71BE959C1A8DC4A6003B8BE0 /* EventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableViewCell.h; sourceTree = "<group>"; };
+		71BE959D1A8DC4A6003B8BE0 /* EventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableViewCell.m; sourceTree = "<group>"; };
 		A47F517B1A874785007656E7 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		A47F517C1A874785007656E7 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		A47F51821A875780007656E7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -123,10 +120,8 @@
 		A47F51711A873DBE007656E7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A47F51721A873E00007656E7 /* EventTableViewCell.h */,
-				A47F51731A873E00007656E7 /* EventTableViewCell.m */,
-				A47F51781A8745FB007656E7 /* EventList.h */,
-				A47F51791A8745FB007656E7 /* EventList.m */,
+				71BE959C1A8DC4A6003B8BE0 /* EventTableViewCell.h */,
+				71BE959D1A8DC4A6003B8BE0 /* EventTableViewCell.m */,
 				A47F517B1A874785007656E7 /* Event.h */,
 				A47F517C1A874785007656E7 /* Event.m */,
 				A4A748B81A8C640800A1B2E9 /* UserProfile.h */,
@@ -316,13 +311,12 @@
 			files = (
 				A4C821ED1A86E3F600DD3FE4 /* AppDelegate.m in Sources */,
 				A4C821F01A86E3F600DD3FE4 /* MasterViewController.m in Sources */,
+				71BE959E1A8DC4A6003B8BE0 /* EventTableViewCell.m in Sources */,
 				A4A748BA1A8C640800A1B2E9 /* UserProfile.m in Sources */,
 				A47F519A1A8BFB02007656E7 /* ProfileViewController.m in Sources */,
-				A47F517A1A8745FB007656E7 /* EventList.m in Sources */,
 				A4C821EA1A86E3F600DD3FE4 /* main.m in Sources */,
 				A4C821F31A86E3F600DD3FE4 /* DetailViewController.m in Sources */,
 				A4A748BD1A8C88AB00A1B2E9 /* AddEventViewController.m in Sources */,
-				A47F51741A873E00007656E7 /* EventTableViewCell.m in Sources */,
 				A47F517D1A874785007656E7 /* Event.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

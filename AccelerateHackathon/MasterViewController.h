@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EventList.h"
+#import "EventTableViewCell.h"
 #import "UserProfile.h"
 @interface MasterViewController : UITableViewController
 
