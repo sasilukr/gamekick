@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "Event.h"
+#import "UserProfile.h"
 
 @interface AddEventViewController : UIViewController
 

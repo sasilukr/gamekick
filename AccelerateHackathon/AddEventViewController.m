@@ -9,8 +9,9 @@
 #import "AddEventViewController.h"
 #import "DetailViewController.h"
 
-@interface AddEventViewController ()
-
+@interface AddEventViewController ()  {
+    UserProfile *userProfile;
+}
 @end
 
 @implementation AddEventViewController
@@ -18,8 +19,18 @@
 
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *userId = [defaults objectForKey:@"userId"];
+    NSString *userName = [defaults objectForKey:@"userName"];
+    NSString *groupName = [defaults objectForKey:@"groupName"];
+    userProfile.userId = userId;
+    userProfile.userName = userName;
+    userProfile.groupName = groupName;
     _currentEvent = [[Event alloc] init];
+    
+    [super viewDidLoad];
+
 
 }
 
@@ -57,9 +68,18 @@
     pEvent[@"name"] = _currentEvent.eventName;
     pEvent[@"eventDate"] = _currentEvent.eventDate;
     pEvent[@"description"] = _currentEvent.eventDescription;
-    pEvent[@"creator"] = @"iOS App Default";
     pEvent[@"min_people"] = @(_currentEvent.minPeople);
     pEvent[@"total_people"] = @(_currentEvent.totalPeople);
+    
+    pEvent[@"creator"] = userProfile.userName; // TODO change to user object
+    pEvent[@"groupName"] = userProfile.groupName;
+    
+    
+    
+    
+    // TODO add current user to event users array
+    
+    
     [pEvent saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             NSLog(@"Event created!!!!");
