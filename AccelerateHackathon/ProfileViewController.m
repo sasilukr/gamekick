@@ -8,21 +8,26 @@
 
 #import "ProfileViewController.h"
 
-@interface ProfileViewController ()
-
+@interface ProfileViewController () {
+    
+}
 @end
 
 @implementation ProfileViewController
 
-- (void)viewDidLoad {
+static BOOL didViewLoad;
 
+- (void)viewWillAppear:(BOOL)animated
+{
+
+}
+- (void)viewDidLoad {
     if ( !_userProfile ) {
         _userProfile = [[UserProfile alloc] init];
     }
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-//    NSString *userId = [defaults objectForKey:@"userId"];
+    //    NSString *userId = [defaults objectForKey:@"userId"];
     NSString *userName = [defaults objectForKey:@"userName"];
     NSString *groupName = [defaults objectForKey:@"groupName"];
     
@@ -30,8 +35,18 @@
     self.groupNameTextField.text = groupName;
     _userProfile.userName = userName;
     _userProfile.groupName = groupName;
+    NSLog(@"viewDidLoad %d", didViewLoad);
     
-    [super viewDidLoad];
+    
+    
+    if ( !didViewLoad && [userName length] != 0 ) {
+        NSLog(@"FirstViewLoad");
+        didViewLoad = TRUE;
+        [self performSegueWithIdentifier:@"SaveProfileSeque" sender:self];
+    } else {
+        [super viewDidLoad];
+    }
+
 
 }
 
