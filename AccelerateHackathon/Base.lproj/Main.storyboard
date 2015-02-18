@@ -12,12 +12,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="hSH-b2-R9r" kind="relationship" relationship="rootViewController" id="vvu-PY-p2j"/>
+                        <segue destination="pGg-6v-bdr" kind="relationship" relationship="rootViewController" id="kfX-YB-aoY"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eq9-QA-ai8" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-560" y="60"/>
+            <point key="canvasLocation" x="-127" y="60"/>
         </scene>
         <!--GameKick-->
         <scene sceneID="e85-rz-Onx">
@@ -75,7 +75,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3HF-aX-24n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-110" y="60"/>
+            <point key="canvasLocation" x="-87" y="772"/>
         </scene>
         <!--Add Event View Controller-->
         <scene sceneID="IOL-ef-OCt">
@@ -183,7 +183,7 @@
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Event Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXw-cU-ACg">
-                                            <rect key="frame" x="15" y="124" width="270" height="51"/>
+                                            <rect key="frame" x="15" y="125" width="178" height="51"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -192,11 +192,18 @@
                                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZzA-qN-Nr7">
                                             <rect key="frame" x="20" y="32" width="259" height="2"/>
                                         </progressView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="1/1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AV6-1T-kff">
+                                            <rect key="frame" x="240" y="141" width="35" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="eventDateLabel" destination="qXw-cU-ACg" id="gkU-Hu-uwe"/>
+                                    <outlet property="eventMemberCountLabel" destination="AV6-1T-kff" id="T4i-za-zIF"/>
                                     <outlet property="eventNameLabel" destination="2pz-XF-uhl" id="1hC-wH-6Yz"/>
                                     <segue destination="Ah7-4n-0Wa" kind="push" identifier="showDetail" id="jUr-3t-vfg"/>
                                 </connections>
@@ -216,7 +223,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cn-md-YlS" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="352" y="60"/>
+            <point key="canvasLocation" x="352" y="59"/>
         </scene>
         <!--Detail-->
         <scene sceneID="Cn3-H9-jdl">
@@ -243,22 +250,31 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfi-Re-JCQ">
-                                <rect key="frame" x="28" y="396" width="76" height="46"/>
-                                <state key="normal" title="No">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nkE-Jj-xso">
                                 <rect key="frame" x="28" y="94" width="264" height="128"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycc-mV-Ko9">
-                                <rect key="frame" x="216" y="396" width="76" height="46"/>
-                                <state key="normal" title="Yes">
+                                <rect key="frame" x="122" y="453" width="76" height="46"/>
+                                <state key="normal" title="Join Event">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="joinEvent:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="K9m-zQ-NWX"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUf-G2-KI5">
+                                <rect key="frame" x="139" y="405" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfi-Re-JCQ">
+                                <rect key="frame" x="122" y="453" width="84" height="46"/>
+                                <state key="normal" title="Leave Event">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="leaveEvent:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="Xbh-yS-nVU"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -274,6 +290,7 @@
                         <outlet property="detailDescriptionLabel" destination="Lei-5M-9Gs" id="sCT-F7-F6f"/>
                         <outlet property="eventDate" destination="98W-Wk-j1D" id="Nrk-W8-5uu"/>
                         <outlet property="eventImage" destination="nkE-Jj-xso" id="mg5-HZ-aRR"/>
+                        <outlet property="eventMemberCountLabel" destination="YUf-G2-KI5" id="jHz-5m-3Df"/>
                         <outlet property="noButton" destination="lfi-Re-JCQ" id="HVT-Af-FkH"/>
                         <outlet property="yesButton" destination="ycc-mV-Ko9" id="Yyb-BI-79z"/>
                     </connections>
@@ -289,7 +306,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="vvu-PY-p2j"/>
-        <segue reference="jsh-E0-m2q"/>
+        <segue reference="kfX-YB-aoY"/>
     </inferredMetricsTieBreakers>
 </document>

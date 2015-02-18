@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Event.h"
+#import "UserProfile.h"
 #import <Parse/Parse.h>
 
 @interface DetailViewController : UIViewController
@@ -16,13 +17,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *eventImage;
 @property (strong, nonatomic) IBOutlet UILabel *eventDate;
-
-
+@property (strong, nonatomic) IBOutlet UILabel *eventMemberCountLabel;
 
 @property (strong, nonatomic) IBOutlet UIButton *yesButton;
 @property (strong, nonatomic) IBOutlet UIButton *noButton;
 
 - (IBAction)joinEvent:(id)sender;
-
+- (IBAction)leaveEvent:(id)sender;
 @end
 

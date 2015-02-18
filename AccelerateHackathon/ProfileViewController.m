@@ -17,10 +17,6 @@
 
 static BOOL didViewLoad;
 
-- (void)viewWillAppear:(BOOL)animated
-{
-
-}
 - (void)viewDidLoad {
     if ( !_userProfile ) {
         _userProfile = [[UserProfile alloc] init];
@@ -39,13 +35,13 @@ static BOOL didViewLoad;
     
     
     
-    if ( !didViewLoad && [userName length] != 0 ) {
-        NSLog(@"FirstViewLoad");
-        didViewLoad = TRUE;
-        [self performSegueWithIdentifier:@"SaveProfileSeque" sender:self];
-    } else {
+//    if ( !didViewLoad && [userName length] != 0 ) {
+//        NSLog(@"FirstViewLoad");
+//        didViewLoad = TRUE;
+//        [self performSegueWithIdentifier:@"SaveProfileSeque" sender:self];
+//    } else {
         [super viewDidLoad];
-    }
+//    }
 
 
 }
@@ -73,6 +69,7 @@ static BOOL didViewLoad;
     PFUser *user = [PFUser user];
     user.username = _userProfile.userName;
     user.password = _userProfile.userName;
+    user[@"groupName"] = _userProfile.groupName;
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
@@ -87,6 +84,17 @@ static BOOL didViewLoad;
 
             [defaults synchronize];
             
+            NSUserDefaults *defaults2 = [NSUserDefaults standardUserDefaults];
+            
+            NSString *userId = [defaults2 objectForKey:@"userId"];
+            NSString *userName = [defaults2 objectForKey:@"userName"];
+            NSString *groupName = [defaults2 objectForKey:@"groupName"];
+            UserProfile *userProfile = [[UserProfile alloc] init];
+            userProfile.userId = userId;
+            userProfile.userName = userName;
+            userProfile.groupName = groupName;
+
+            NSLog(@"userProfile %@", userProfile);
             
             [self performSegueWithIdentifier:@"SaveProfileSeque" sender:self];
 

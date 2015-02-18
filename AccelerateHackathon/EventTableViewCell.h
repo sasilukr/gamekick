@@ -12,5 +12,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *eventNameLabel;
 
 @property (strong, nonatomic) IBOutlet UILabel *eventDateLabel;
+@property (strong, nonatomic) IBOutlet UILabel *eventMemberCountLabel;
 
 @end

@@ -154,7 +154,9 @@
     Event *event = [self.eventlist objectAtIndex:indexPath.row];
     cell.eventNameLabel.text =  event.eventName;
     cell.eventDateLabel.text = event.eventDate;
-
+    cell.eventMemberCountLabel.text = [NSString stringWithFormat:@"%d/%d", event.totalPeople, event.minPeople];
+    
+    
     return cell;
 }
 

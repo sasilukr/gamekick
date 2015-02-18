@@ -24,9 +24,13 @@
     NSString *userId = [defaults objectForKey:@"userId"];
     NSString *userName = [defaults objectForKey:@"userName"];
     NSString *groupName = [defaults objectForKey:@"groupName"];
+    
+    userProfile = [[UserProfile alloc] init];
     userProfile.userId = userId;
     userProfile.userName = userName;
     userProfile.groupName = groupName;
+    
+    
     _currentEvent = [[Event alloc] init];
     
     [super viewDidLoad];
@@ -61,7 +65,6 @@
     
     _currentEvent.totalPeople = 1;
     _currentEvent.isActive = NO;
-    NSLog(@"createEvent %@", _currentEvent);
     
     
     PFObject *pEvent = [PFObject objectWithClassName:@"Event"];
@@ -71,13 +74,17 @@
     pEvent[@"min_people"] = @(_currentEvent.minPeople);
     pEvent[@"total_people"] = @(_currentEvent.totalPeople);
     
+    NSLog(@"createEvent %@", _currentEvent);
+    NSLog(@"userProfile %@", userProfile);
+
+    
     pEvent[@"creator"] = userProfile.userName; // TODO change to user object
     pEvent[@"groupName"] = userProfile.groupName;
+
+    // add current user to event users array
+    PFUser *currentUser = [PFUser currentUser];
+    [pEvent addObject:currentUser forKey:@"users"];
     
-    
-    
-    
-    // TODO add current user to event users array
     
     
     [pEvent saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {

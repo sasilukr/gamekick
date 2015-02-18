@@ -11,7 +11,7 @@
 @implementation Event
 
 - (NSString *)description {
-    return [NSString stringWithFormat: @"Event: Name=%@ Date=%@ Min People=%d", _eventName, _eventDate, _minPeople];
+    return [NSString stringWithFormat: @"Event: \n\t\tName=%@ \n\t\tDate=%@ \n\t\tMin People=%d \n\t\tCreator=%@", _eventName, _eventDate, _minPeople, _creator];
 }
 
 @end
