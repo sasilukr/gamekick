@@ -35,27 +35,43 @@
         self.eventMemberCountLabel.text = [NSString stringWithFormat:@"%d/%d", self.detailItem.totalPeople, self.detailItem.minPeople];
         
         PFUser *user = [PFUser currentUser];
-        PFQuery *eventQuery = [PFQuery queryWithClassName:@"Event"];
-        [eventQuery whereKey:@"users" equalTo:user];
-        [eventQuery includeKey:@"users"];
+        PFQuery *eventUserQuery = [PFQuery queryWithClassName:@"Event"];
+        [eventUserQuery whereKey:@"users" equalTo:user];
+        [eventUserQuery includeKey:@"users"];
         
+//        NSLog(@"configureView players %@", self.detailItem.players);
         
+        if ([self.detailItem.players containsObject:user]) {
+            NSLog(@"configureView player already joined");
+            [_yesButton setHidden:YES];
+        } else {
+            [_noButton setHidden:YES];
+        }
         
-//        [eventQuery getObjectInBackgroundWithId:self.detailItem.eventId block:^(PFObject *eventResult, NSError *error) {
-        [eventQuery findObjectsInBackgroundWithBlock:^(NSArray *events, NSError *error) {
-            
-            NSLog(@"DetailViewController configureView currentUser %@ for event %@", user, events);
+//        PFQuery *eventQuery = [PFQuery queryWithClassName:@"Event"];
+//        [eventUserQuery whereKey:@"objectId" equalTo:self.detailItem.eventId];
 
-            if ( events.count > 0 ) {
+        
+//        PFQuery *query = [PFQuery orQueryWithSubqueries:@[eventUserQuery,eventQuery]];
+        
+//        [eventUserQuery getObjectInBackgroundWithId:self.detailItem.eventId block:^(PFObject *eventResult, NSError *error) {
+       
+        
+//        [eventUserQuery findObjectsInBackgroundWithBlock:^(NSArray *events, NSError *error) {
+        
+//            NSLog(@"DetailViewController configureView currentUser %@ for event %@", user, events);
+//            NSLog(@"DetailViewController configureView  currentUser %@ for event %@", user, eventResult);
+
+//            if ( events.count > 0 ) {
                 // user has already joined the event
-                [_yesButton setHidden:YES];
-            } else {
+//                [_yesButton setHidden:YES];
+//            } else {
                 // user hasn't joined the event
                 // TODO keep track of when user rejects event so don't ask user to response again
-                [_noButton setHidden:YES];
-            }
-            
-        }];
+//                [_noButton setHidden:YES];
+//            }
+        
+//        }];
         
     }
 }
@@ -127,6 +143,8 @@
     
     [_yesButton setHidden:YES];
     [_noButton setHidden:NO];
+    
+    // TODO update eventlist member and count
     
     NSLog(@"Success: userId %@ joinEvent eventId %@", currentUser.objectId, self.detailItem.eventId);
     

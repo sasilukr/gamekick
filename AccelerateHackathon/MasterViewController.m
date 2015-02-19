@@ -42,22 +42,29 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showAddEvent)];
     self.navigationItem.rightBarButtonItem = addButton;
+
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSLog(@"reloading event list");
     [self getEvents];
-
-
 }
 
 - (void) getEvents
 {
     
+    [eventlist removeAllObjects];
     //  Read all events from Parse
     
     PFQuery *query = [PFQuery queryWithClassName:@"Event"];
     [query whereKey:@"groupName" equalTo:currentUser[@"groupName"]];
+    [query includeKey:@"users"];
+
     [query findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
         if (!error) {
             // The find succeeded.
-            NSLog(@"Successfully retrieved %d events.", results.count);
+            NSLog(@"Successfully retrieved %d events. %@", results.count, results);
 
             
             // Do something with the found objects
@@ -69,6 +76,7 @@
                 event.eventImageUrl = result[@"image_url"];
                 event.totalPeople = [result[@"total_people"] integerValue];
                 event.minPeople = [result[@"min_people"] integerValue];
+                event.players = result[@"users"];
                 [eventlist addObject:event];
             }
             [self.tableView reloadData];

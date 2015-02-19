@@ -18,7 +18,7 @@
 @property NSInteger minPeople;
 @property NSInteger totalPeople;
 @property BOOL isActive;
-
+@property NSMutableArray *players;
 
 @property NSString *eventImageUrl;
 
