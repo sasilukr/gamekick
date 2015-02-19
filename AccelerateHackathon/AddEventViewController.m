@@ -9,9 +9,8 @@
 #import "AddEventViewController.h"
 #import "DetailViewController.h"
 
-@interface AddEventViewController ()  {
-    UserProfile *userProfile;
-}
+@interface AddEventViewController ()
+
 @end
 
 @implementation AddEventViewController
@@ -19,17 +18,17 @@
 
 
 - (void)viewDidLoad {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    NSString *userId = [defaults objectForKey:@"userId"];
-    NSString *userName = [defaults objectForKey:@"userName"];
-    NSString *groupName = [defaults objectForKey:@"groupName"];
-    
-    userProfile = [[UserProfile alloc] init];
-    userProfile.userId = userId;
-    userProfile.userName = userName;
-    userProfile.groupName = groupName;
-    
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    
+//    NSString *userId = [defaults objectForKey:@"userId"];
+//    NSString *userName = [defaults objectForKey:@"userName"];
+//    NSString *groupName = [defaults objectForKey:@"groupName"];
+//    
+//    userProfile = [[UserProfile alloc] init];
+//    userProfile.userId = userId;
+//    userProfile.userName = userName;
+//    userProfile.groupName = groupName;
+//    
     
     _currentEvent = [[Event alloc] init];
     
@@ -75,16 +74,13 @@
     pEvent[@"total_people"] = @(_currentEvent.totalPeople);
     
     NSLog(@"createEvent %@", _currentEvent);
-    NSLog(@"userProfile %@", userProfile);
-
     
-    pEvent[@"creator"] = userProfile.userName; // TODO change to user object
-    pEvent[@"groupName"] = userProfile.groupName;
-
-    // add current user to event users array
     PFUser *currentUser = [PFUser currentUser];
-    [pEvent addObject:currentUser forKey:@"users"];
-    
+    pEvent[@"creator"] = currentUser.username; // TODO change to user object
+    pEvent[@"groupName"] = currentUser[@"groupName"];
+
+
+    [pEvent addObject:currentUser forKey:@"users"];     // add current user to event users array
     
     
     [pEvent saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {

@@ -11,9 +11,10 @@
 #import "DetailViewController.h"
 #import <Parse/Parse.h>
 
-@interface MasterViewController ()
-
-@property (strong, nonatomic) NSMutableArray *eventlist;
+@interface MasterViewController () {
+    NSMutableArray *eventlist;
+    PFUser *currentUser;
+}
 
 @end
 
@@ -26,7 +27,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.eventlist = [[NSMutableArray alloc] init];
+    currentUser = [PFUser currentUser];
+    
+    eventlist = [[NSMutableArray alloc] init];
     // Do any additional setup after loading the view, typically from a nib.
 //    self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
@@ -65,7 +68,7 @@
                     event.eventImageUrl = result[@"image_url"];
                     event.totalPeople = [result[@"total_people"] integerValue];
                     event.minPeople = [result[@"min_people"] integerValue];
-                    [self.eventlist addObject:event];
+                    [eventlist addObject:event];
                 }
                 [self.tableView reloadData];
             } else {
@@ -97,7 +100,7 @@
 
 - (void)showProfile
 {
-    NSLog(@"MasterViewController show profile view controller %@", _userProfile.userName);
+    NSLog(@"MasterViewController show profile view controller");
   
     [self performSegueWithIdentifier:@"ShowProfileSeque" sender:self];
     
@@ -106,19 +109,9 @@
 - (void)showAddEvent
 {
     
-    NSLog(@"MasterViewController show add event view controller %@", _userProfile.userName);
+    NSLog(@"MasterViewController show add event view controller");
     
     [self performSegueWithIdentifier:@"ShowAddEventSeque" sender:self];
-    
-//    if (!self.eventlist) {
-//        self.eventlist = [[NSMutableArray alloc] init];
-//    }
-//    Event *newEvent = [[Event alloc] init];
-//    newEvent.eventName = @"My New Party";
-//    newEvent.eventDate = @"My Birthday";
-//    [self.eventlist insertObject:newEvent atIndex:0];
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - Segues
@@ -126,9 +119,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        NSDate *object = self.objects[indexPath.row];
         
-        Event *event = [self.eventlist objectAtIndex: indexPath.row];
+        Event *event = [eventlist objectAtIndex: indexPath.row];
         
         [[segue destinationViewController] setDetailItem:event];
     }
@@ -141,17 +133,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.eventlist count];
+    return [eventlist count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
     EventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-//    NSDate *object = self.objects[indexPath.row];
-//    cell.textLabel.text = [object description];
-    Event *event = [self.eventlist objectAtIndex:indexPath.row];
+    Event *event = [eventlist objectAtIndex:indexPath.row];
     cell.eventNameLabel.text =  event.eventName;
     cell.eventDateLabel.text = event.eventDate;
     cell.eventMemberCountLabel.text = [NSString stringWithFormat:@"%d/%d", event.totalPeople, event.minPeople];
@@ -167,7 +156,7 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.eventlist removeObjectAtIndex:indexPath.row];
+        [eventlist removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.

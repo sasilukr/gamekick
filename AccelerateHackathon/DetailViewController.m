@@ -9,7 +9,7 @@
 #import "DetailViewController.h"
 
 @interface DetailViewController () {
-    UserProfile *userProfile;
+    PFUser *currentUser;
 }
 
 @end
@@ -34,9 +34,9 @@
         self.eventDate.text = self.detailItem.eventDate;
         self.eventMemberCountLabel.text = [NSString stringWithFormat:@"%d/%d", self.detailItem.totalPeople, self.detailItem.minPeople];
         
-        PFUser *currentUser = [PFUser currentUser];
+        PFUser *user = [PFUser currentUser];
         PFQuery *eventQuery = [PFQuery queryWithClassName:@"Event"];
-        [eventQuery whereKey:@"users" equalTo:currentUser];
+        [eventQuery whereKey:@"users" equalTo:user];
         [eventQuery includeKey:@"users"];
         
         
@@ -44,7 +44,7 @@
 //        [eventQuery getObjectInBackgroundWithId:self.detailItem.eventId block:^(PFObject *eventResult, NSError *error) {
         [eventQuery findObjectsInBackgroundWithBlock:^(NSArray *events, NSError *error) {
             
-            NSLog(@"DetailViewController configureView currentUser %@ for event %@", currentUser, events);
+            NSLog(@"DetailViewController configureView currentUser %@ for event %@", user, events);
 
             if ( events.count > 0 ) {
                 // user has already joined the event
@@ -62,14 +62,16 @@
 
 - (void)viewDidLoad {
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *userId = [defaults objectForKey:@"userId"];
-    NSString *userName = [defaults objectForKey:@"userName"];
-    NSString *groupName = [defaults objectForKey:@"groupName"];
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    NSString *userId = [defaults objectForKey:@"userId"];
+//    NSString *userName = [defaults objectForKey:@"userName"];
+//    NSString *groupName = [defaults objectForKey:@"groupName"];
+//    
+//    userProfile.userId = userId;
+//    userProfile.userName = userName;
+//    userProfile.groupName = groupName;
     
-    userProfile.userId = userId;
-    userProfile.userName = userName;
-    userProfile.groupName = groupName;
+    currentUser = [PFUser currentUser];
     
     [super viewDidLoad];
     [self configureView];
@@ -97,11 +99,11 @@
 - (IBAction)joinEvent:(id)sender
 {
     
-    PFUser *pfUser = [PFUser currentUser];
+//    PFUser *pfUser = [PFUser currentUser];
     
     PFObject *pfEvent = [PFObject objectWithClassName:@"Event"];
     pfEvent.objectId = self.detailItem.eventId;
-    [pfEvent addObject:pfUser forKey:@"users"];
+    [pfEvent addObject:currentUser forKey:@"users"];
     
     
     pfEvent[@"total_people"] = @(self.detailItem.totalPeople+1);
@@ -126,18 +128,18 @@
     [_yesButton setHidden:YES];
     [_noButton setHidden:NO];
     
-    NSLog(@"Success: userId %@ joinEvent eventId %@", pfUser.objectId, self.detailItem.eventId);
+    NSLog(@"Success: userId %@ joinEvent eventId %@", currentUser.objectId, self.detailItem.eventId);
     
     
 }
 
 - (IBAction)leaveEvent:(id)sender
 {
-    PFUser *pfUser = [PFUser currentUser];
+//    PFUser *pfUser = [PFUser currentUser];
     
     PFObject *pfEvent = [PFObject objectWithClassName:@"Event"];
     pfEvent.objectId = self.detailItem.eventId;
-    [pfEvent removeObject:pfUser forKey:@"users"];
+    [pfEvent removeObject:currentUser forKey:@"users"];
 
     pfEvent[@"total_people"] = @(self.detailItem.totalPeople-1);
     if ( self.detailItem.totalPeople-1 < self.detailItem.minPeople ) {
@@ -159,6 +161,6 @@
     [_yesButton setHidden:NO];
     [_noButton setHidden:YES];
 
-    NSLog(@"Success: userId %@ leaveEvent eventId %@", pfUser.objectId, self.detailItem.eventId);
+    NSLog(@"Success: userId %@ leaveEvent eventId %@", currentUser.objectId, self.detailItem.eventId);
 }
 @end

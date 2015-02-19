@@ -11,7 +11,7 @@
 #import "UserProfile.h"
 @interface MasterViewController : UITableViewController
 
-@property (strong, nonatomic) UserProfile *userProfile;
+//@property (strong, nonatomic) UserProfile *userProfile;
 
 @end
 
