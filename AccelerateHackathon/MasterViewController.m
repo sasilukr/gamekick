@@ -52,30 +52,31 @@
     
     //  Read all events from Parse
     
-        PFQuery *query = [PFQuery queryWithClassName:@"Event"];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
-            if (!error) {
-                // The find succeeded.
-                NSLog(@"Successfully retrieved %d events.", results.count);
+    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
+    [query whereKey:@"groupName" equalTo:currentUser[@"groupName"]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %d events.", results.count);
 
-                
-                // Do something with the found objects
-                for (PFObject *result in results) {
-                    Event *event = [[Event alloc] init];
-                    event.eventId = result.objectId;
-                    event.eventName = result[@"name"];
-                    event.eventDate = result[@"eventDate"];
-                    event.eventImageUrl = result[@"image_url"];
-                    event.totalPeople = [result[@"total_people"] integerValue];
-                    event.minPeople = [result[@"min_people"] integerValue];
-                    [eventlist addObject:event];
-                }
-                [self.tableView reloadData];
-            } else {
-                // Log details of the failure
-                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            
+            // Do something with the found objects
+            for (PFObject *result in results) {
+                Event *event = [[Event alloc] init];
+                event.eventId = result.objectId;
+                event.eventName = result[@"name"];
+                event.eventDate = result[@"eventDate"];
+                event.eventImageUrl = result[@"image_url"];
+                event.totalPeople = [result[@"total_people"] integerValue];
+                event.minPeople = [result[@"min_people"] integerValue];
+                [eventlist addObject:event];
             }
-        }];
+            [self.tableView reloadData];
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
     
 }
 
