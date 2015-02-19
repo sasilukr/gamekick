@@ -31,17 +31,22 @@
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *userId = [defaults objectForKey:@"userId"];
-    NSString *userName = [defaults objectForKey:@"userName"];
-    NSString *groupName = [defaults objectForKey:@"groupName"];
+    PFUser *currentUser = [PFUser currentUser];
+//    
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    NSString *userId = [defaults objectForKey:@"userId"];
+//    NSString *userName = [defaults objectForKey:@"userName"];
+//    NSString *groupName = [defaults objectForKey:@"groupName"];
+    
+    
     
 //    if ( !([userId length] > 0) ) {
+    if ( !currentUser ) {
         // Redirect to login controller
         NSLog(@"Redirecting to ProfileViewController from AppDelegate");
         ProfileViewController *loginController=[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ProfileViewController"];
         UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:loginController];  self.window.rootViewController=navController;
-//    }
+    }
 
     
     return YES;

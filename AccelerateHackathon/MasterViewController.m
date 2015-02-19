@@ -78,17 +78,17 @@
 
 
 
-- (void)setUserProfile:(UserProfile *)newUserProfile
-{
-    
-    if (_userProfile != newUserProfile) {
-        _userProfile = newUserProfile;
-        
-         NSLog(@"MasterViewController userName %@", _userProfile.userName);
-
-        // TODO update list view
-    }
-}
+//- (void)setUserProfile:(UserProfile *)newUserProfile
+//{
+//    
+//    if (_userProfile != newUserProfile) {
+//        _userProfile = newUserProfile;
+//        
+//         NSLog(@"MasterViewController userName %@", _userProfile.userName);
+//
+//        // TODO update list view
+//    }
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

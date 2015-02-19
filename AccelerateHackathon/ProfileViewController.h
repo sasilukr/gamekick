@@ -12,7 +12,7 @@
 
 @interface ProfileViewController : UIViewController
 
-@property (strong, nonatomic) UserProfile *userProfile;
+//@property (strong, nonatomic) UserProfile *userProfile;
 
 
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;

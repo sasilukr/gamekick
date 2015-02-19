@@ -15,33 +15,31 @@
 
 @implementation ProfileViewController
 
-static BOOL didViewLoad;
-
 - (void)viewDidLoad {
-    if ( !_userProfile ) {
-        _userProfile = [[UserProfile alloc] init];
-    }
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    //    NSString *userId = [defaults objectForKey:@"userId"];
-    NSString *userName = [defaults objectForKey:@"userName"];
-    NSString *groupName = [defaults objectForKey:@"groupName"];
-    
-    self.nameTextField.text = userName;
-    self.groupNameTextField.text = groupName;
-    _userProfile.userName = userName;
-    _userProfile.groupName = groupName;
-    NSLog(@"viewDidLoad %d", didViewLoad);
-    
-    
-    
-//    if ( !didViewLoad && [userName length] != 0 ) {
-//        NSLog(@"FirstViewLoad");
-//        didViewLoad = TRUE;
-//        [self performSegueWithIdentifier:@"SaveProfileSeque" sender:self];
-//    } else {
-        [super viewDidLoad];
+//    if ( !_userProfile ) {
+//        _userProfile = [[UserProfile alloc] init];
 //    }
+//
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    //    NSString *userId = [defaults objectForKey:@"userId"];
+//    NSString *userName = [defaults objectForKey:@"userName"];
+//    NSString *groupName = [defaults objectForKey:@"groupName"];
+//    self.nameTextField.text = userName;
+//    self.groupNameTextField.text = groupName;
+//    _userProfile.userName = userName;
+//    _userProfile.groupName = groupName;
+    
+    PFUser *currentUser = [PFUser currentUser];
+    if ( currentUser ) {
+        self.nameTextField.text = currentUser.username;
+        self.groupNameTextField.text = currentUser[@"groupName"];
+    }
+//    _userProfile.userName = currentUser.username;
+//    _userProfile.groupName = currentUser[@"groupName"];
+    
+    
+    [super viewDidLoad];
+
 
 
 }
@@ -62,47 +60,66 @@ static BOOL didViewLoad;
 */
 
 - (IBAction)saveProfile:(id)sender {
+//    
+//    _userProfile.userName = self.nameTextField.text;
+//    _userProfile.groupName = self.groupNameTextField.text;
+
+    PFUser *currentUser = [PFUser currentUser];
+    BOOL newuser = NO;
+    if ( !currentUser ) {
+        // login/signup
+        // TODO handle login - currently only allow signup
+        currentUser = [[PFUser alloc] init];
+        newuser = YES;
+    }
+    currentUser.username = self.nameTextField.text;
+    currentUser.password = self.nameTextField.text;
+    currentUser[@"groupName"] = self.groupNameTextField.text;
+    NSLog(@"saveProfile %@ ", currentUser);
+
+    if ( !newuser ) {
+        NSLog(@"saveProfile not newuser");
+
+        [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if ( !error ) {
+                NSLog(@"saveProfile updated user");
+                [self saveProfileCallback:currentUser];
+            } else {
+                NSString *errorString = [error userInfo][@"error"];
+                NSLog(@"Parse saveProfile error update user %@", errorString);
+            }
+        }];
+    } else {
+        NSLog(@"saveProfile newuser");
+
+        [currentUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error) {
+                NSLog(@"saveProfile signedup user");
+                [self saveProfileCallback:currentUser];
+            } else {
+                NSString *errorString = [error userInfo][@"error"];
+                NSLog(@"Parse saveProfile error signup user %@", errorString);
+            }
+        }];
+
+    }
+}
+
+- (void)saveProfileCallback:(PFUser*)user
+{
+    NSLog(@"Saved Parse User!!!! %@ ", user);
+
+//    
+//    // Store the data
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    [defaults setObject:_userProfile.userId forKey:@"userId"];
+//    [defaults setObject:_userProfile.userName forKey:@"userName"];
+//    [defaults setObject:_userProfile.groupName forKey:@"groupName"];
+//    
+//    [defaults synchronize];
     
-    _userProfile.userName = self.nameTextField.text;
-    _userProfile.groupName = self.groupNameTextField.text;
+    [self performSegueWithIdentifier:@"SaveProfileSeque" sender:self];
 
-    PFUser *user = [PFUser user];
-    user.username = _userProfile.userName;
-    user.password = _userProfile.userName;
-    user[@"groupName"] = _userProfile.groupName;
-    
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            NSLog(@"Saved Parse User!!!! %@ ", user);
-            _userProfile.userId = user.objectId;
-
-            // Store the data
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setObject:_userProfile.userId forKey:@"userId"];
-            [defaults setObject:_userProfile.userName forKey:@"userName"];
-            [defaults setObject:_userProfile.groupName forKey:@"groupName"];
-
-            [defaults synchronize];
-            
-            NSUserDefaults *defaults2 = [NSUserDefaults standardUserDefaults];
-            
-            NSString *userId = [defaults2 objectForKey:@"userId"];
-            NSString *userName = [defaults2 objectForKey:@"userName"];
-            NSString *groupName = [defaults2 objectForKey:@"groupName"];
-            UserProfile *userProfile = [[UserProfile alloc] init];
-            userProfile.userId = userId;
-            userProfile.userName = userName;
-            userProfile.groupName = groupName;
-
-            NSLog(@"userProfile %@", userProfile);
-            
-            [self performSegueWithIdentifier:@"SaveProfileSeque" sender:self];
-
-        } else {
-            NSString *errorString = [error userInfo][@"error"];
-            NSLog(@"Parse saveProfile error %@", errorString);
-        }
-    }];
 }
 
 #pragma mark - Segues
@@ -110,7 +127,7 @@ static BOOL didViewLoad;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"SaveProfileSeque"]) {
         
-        [[segue destinationViewController] setUserProfile:_userProfile];
+//        [[segue destinationViewController] setUserProfile: nil];
     }
 }
 
