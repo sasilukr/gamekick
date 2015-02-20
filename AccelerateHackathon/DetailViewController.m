@@ -35,18 +35,21 @@
         self.eventMemberCountLabel.text = [NSString stringWithFormat:@"%d/%d", self.detailItem.totalPeople, self.detailItem.minPeople];
         
         PFUser *user = [PFUser currentUser];
-        PFQuery *eventUserQuery = [PFQuery queryWithClassName:@"Event"];
-        [eventUserQuery whereKey:@"users" equalTo:user];
-        [eventUserQuery includeKey:@"users"];
+//        PFQuery *eventUserQuery = [PFQuery queryWithClassName:@"Event"];
+//        [eventUserQuery whereKey:@"users" equalTo:user];
+//        [eventUserQuery includeKey:@"users"];
         
-//        NSLog(@"configureView players %@", self.detailItem.players);
+        NSLog(@"configureView players %@", self.detailItem.players);
         
-        if ([self.detailItem.players containsObject:user]) {
-            NSLog(@"configureView player already joined");
-            [_yesButton setHidden:YES];
-        } else {
-            [_noButton setHidden:YES];
-        }
+        [_yesButton setHidden:[self.detailItem.players containsObject:user]];
+        [_noButton setHidden:![self.detailItem.players containsObject:user]];
+        
+//        if ([self.detailItem.players containsObject:user]) {
+//
+//        } else {
+//            [_yesButton setHidden:NO];
+//            [_noButton setHidden:YES];
+//        }
         
 //        PFQuery *eventQuery = [PFQuery queryWithClassName:@"Event"];
 //        [eventUserQuery whereKey:@"objectId" equalTo:self.detailItem.eventId];
@@ -131,7 +134,21 @@
     [pfEvent saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
 
-            self.detailItem.totalPeople = [pfEvent[@"total_people"] intValue];
+            [pfEvent fetch];
+            Event *event = [[Event alloc] init];
+            event.eventId = pfEvent.objectId;
+            event.eventName = pfEvent[@"name"];
+            event.eventDate = pfEvent[@"eventDate"];
+            event.eventImageUrl = pfEvent[@"image_url"];
+            event.totalPeople = [pfEvent[@"total_people"] integerValue];
+            event.minPeople = [pfEvent[@"min_people"] integerValue];
+            event.players = pfEvent[@"users"];
+            event.isActive = [pfEvent[@"isActive"] boolValue];
+    
+
+            self.detailItem = event;
+            NSLog(@"Success leaveEvent %@", self.detailItem);
+
             [self configureView];
 
         } else {
@@ -141,8 +158,8 @@
     
     // update view after save
     
-    [_yesButton setHidden:YES];
-    [_noButton setHidden:NO];
+//    [_yesButton setHidden:YES];
+//    [_noButton setHidden:NO];
     
     // TODO update eventlist member and count
     
@@ -167,8 +184,22 @@
     
     [pfEvent saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
+            [pfEvent fetch];
+
             
-            self.detailItem.totalPeople = [pfEvent[@"total_people"] intValue];
+            Event *event = [[Event alloc] init];
+            event.eventId = pfEvent.objectId;
+            event.eventName = pfEvent[@"name"];
+            event.eventDate = pfEvent[@"eventDate"];
+            event.eventImageUrl = pfEvent[@"image_url"];
+            event.totalPeople = [pfEvent[@"total_people"] integerValue];
+            event.minPeople = [pfEvent[@"min_people"] integerValue];
+            event.players = pfEvent[@"users"];
+            event.isActive = [pfEvent[@"isActive"] boolValue];
+            
+            self.detailItem = event;
+            NSLog(@"Success leaveEvent %@", self.detailItem);
+
             [self configureView];
             
         } else {
@@ -176,8 +207,8 @@
         }
     }];
     
-    [_yesButton setHidden:NO];
-    [_noButton setHidden:YES];
+//    [_yesButton setHidden:NO];
+//    [_noButton setHidden:YES];
 
     NSLog(@"Success: userId %@ leaveEvent eventId %@", currentUser.objectId, self.detailItem.eventId);
 }

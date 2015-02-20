@@ -77,6 +77,8 @@
                 event.totalPeople = [result[@"total_people"] integerValue];
                 event.minPeople = [result[@"min_people"] integerValue];
                 event.players = result[@"users"];
+                event.isActive = [result[@"isActive"] boolValue];
+
                 [eventlist addObject:event];
             }
             [self.tableView reloadData];

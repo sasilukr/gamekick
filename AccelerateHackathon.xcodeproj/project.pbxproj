@@ -258,6 +258,7 @@
 				TargetAttributes = {
 					A4C821E31A86E3F600DD3FE4 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = K565LLSVNW;
 					};
 					A4C821FF1A86E3F600DD3FE4 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -446,8 +447,10 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = AccelerateHackathon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "331e65e1-d519-4c1b-935e-7d1d93e63eb5";
 			};
 			name = Debug;
 		};
@@ -462,8 +465,10 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = AccelerateHackathon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "331e65e1-d519-4c1b-935e-7d1d93e63eb5";
 			};
 			name = Release;
 		};
