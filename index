@@ -5,7 +5,7 @@
         <link rel="icon" href="files/favicon.ico" type="image/x-icon">
 
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-        <meta name="Description" content="Lobby lets you and your friends ready up for console, PC, and tabletop games. It’s the easiest way to plan a gaming session.">
+        <meta name="Description" content="Lobby lets you and your friends ready up for console, PC, and tabletop games. Itâ€™s the easiest way to plan a gaming session.">
         <meta name="Keywords" content="Ready up, video game, kickstart, event, tipping point, tilt, board games, pc, wii, xbox, playstation, friends, plan, organize, session">
         <meta name="" content="Ready up, video game, kickstart, event, tipping point, tilt, board games, pc, wii, xbox, playstation, friends, plan, organize, session">
         <title>Lobby | Ready up for game sessions</title>
@@ -358,7 +358,7 @@
             <div id="top_wrap" class="wrap">
                 <div id="top_text" class="text" style="margin-bottom: 20px; width: 45%;">
                     <div id="top_heading" class="heading">Ready up for games with friends.</div>
-                    <div id="top_subheading" class="subheading">Lobby makes it easy to set up game sessions with friends any day of the week.<p>Say goodbye to spammy group chats and “maybe” responses. With Lobby, one person creates an event and invites friends. If enough people ready up, everyone gets notified that the event is going down.</p><p>Launching soon, sign up for updates.</p></div>
+                    <div id="top_subheading" class="subheading">Lobby makes it easy to set up game sessions with friends any day of the week.<p>Say goodbye to spammy group chats and â€œmaybeâ€ responses. With Lobby, one person creates an event and invites friends. If enough people ready up, everyone gets notified that the event is going down.</p><p>Launching soon, sign up for updates.</p></div>
                     <div id="top_email">
                     <!--START OF MAILCHIMP-->
                     <!-- Begin MailChimp Signup Form -->
@@ -394,11 +394,11 @@
             <div id="section1_wrap" class="wrap">
                 <div style="width: 45%;" id="section1_text" class="text">
                     <div id="section1_heading" class="heading" style="color:white; font-size:35px;">Convenient</div>
-                    <div id="section1_subheading" class="subheading" style="color:white;">Whether you’re at work, at home, or on the go, opting into an event is simple. You’ll receive a notification if it’s happening and you can forget about it if not. No sweat.</div>
+                    <div id="section1_subheading" class="subheading" style="color:white;">Whether youâ€™re at work, at home, or on the go, opting into an event is simple. Youâ€™ll receive a notification if itâ€™s happening and you can forget about it if not. No sweat.</div>
                 </div>
                 <div style="width: 45%;" id="section1a_text" class="text_R">
                     <div id="section1a_heading" class="heading" style="color:white; font-size:35px;">Play more games</div>
-                    <div id="section1a_subheading" class="subheading" style="color:white;">With open-invitation events, you’re always likely to get enough players to try out that game you just got on sale. Don’t waste time trying to get everyone online, just play!</div>
+                    <div id="section1a_subheading" class="subheading" style="color:white;">With open-invitation events, youâ€™re always likely to get enough players to try out that game you just got on sale. Donâ€™t waste time trying to get everyone online, just play!</div>
                 </div>
             </div>
         </div>
@@ -429,7 +429,7 @@
         </a>
         <div id="footer">
             <div id="footer_wrap">
-                © 2015 | Lobbyspace
+                Â© 2015 | Lobbyspace
                 <div id="buttons">
                     <a href="mailto:hello@lobby.space">
                         <div id="contact_footer" class="button_footer">Contact</div>
