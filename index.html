@@ -1,1 +1,452 @@
-Hello vvorld
+<!DOCTYPE html>
+<html><head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="files/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="files/favicon.ico" type="image/x-icon">
+
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+        <meta name="Description" content="Lobby lets you and your friends ready up for console, PC, and tabletop games. It’s the easiest way to plan a gaming session.">
+        <meta name="Keywords" content="Ready up, video game, kickstart, event, tipping point, tilt, board games, pc, wii, xbox, playstation, friends, plan, organize, session">
+        <meta name="" content="Ready up, video game, kickstart, event, tipping point, tilt, board games, pc, wii, xbox, playstation, friends, plan, organize, session">
+        <title>Lobby | Ready up for game sessions</title>
+        
+        <link href="files/style.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="files/jquery_002.js"></script>
+        
+        <script>
+            function scroll(here) {$.scrollTo( here, 800, {offset: {top:-60, left:0} });}
+        
+        function onLoad() {
+            setInterval(function(){
+                var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+                var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+
+                var list_text = document.getElementsByClassName("text");
+                var list_text_R = document.getElementsByClassName("text_R");
+                var list_imgs = document.getElementsByClassName("imgs");
+                var list_img_R = document.getElementsByClassName("img_R");
+                
+                if (w<680) {
+                    document.getElementById("press").style.display="none";
+                    document.getElementById("about").style.display="none";
+                    document.getElementById("share_footer").style.display="none";
+                    document.getElementById("tweet_footer").style.display="none";
+                    for (var i = 0; i < list_text.length; i++) {
+                       list_text[i].style.width = "100%";
+                    }
+                    for (var i = 0; i < list_text_R.length; i++) {
+                       list_text_R[i].style.width = "100%";
+                    }
+                    for (var i = 0; i < list_imgs.length; i++) {
+                       list_imgs[i].style.width = "100%";
+                    }
+                    for (var i = 0; i < list_img_R.length; i++) {
+                       list_img_R[i].style.width = "100%";
+                    }
+                }
+                else {
+                    document.getElementById("press").style.display="inline";
+                    document.getElementById("about").style.display="inline";
+                    document.getElementById("share_footer").style.display="inline";
+                    document.getElementById("tweet_footer").style.display="inline";
+                    for (var i = 0; i < list_text.length; i++) {
+                       list_text[i].style.width = "45%";
+                    }
+                    for (var i = 0; i < list_text_R.length; i++) {
+                       list_text_R[i].style.width = "45%";
+                    }
+                    for (var i = 0; i < list_imgs.length; i++) {
+                       list_imgs[i].style.width = "45%";
+                    }
+                    for (var i = 0; i < list_img_R.length; i++) {
+                       list_img_R[i].style.width = "45%";
+                    }
+                }
+                if (w<450) {
+                    document.getElementById("how").style.display="none";
+                    document.getElementById("follow_footer").style.display="none";
+                }
+                else {
+                    document.getElementById("how").style.display="inline";
+                    document.getElementById("follow_footer").style.display="inline";
+                }
+                
+            },500);
+        }
+        </script>
+        
+        <style>
+            body {
+                position:relative;
+                margin:0px;
+                padding:0px;
+                height:100%;
+            }
+            #header {
+                position:fixed;
+                top:0;
+                height:60px;
+                width:100%;
+                background:#3f3f3f;
+                border-bottom:#000000 1px solid;
+                z-index:99999;
+            }
+            #header_wrap {
+                width:80%;
+                height:auto;
+                overflow: auto;
+                margin-left:auto;
+                margin-right:auto;
+                max-width:900px;
+            }
+            #footer_wrap {
+                width:80%;
+                height:auto;
+                overflow: auto;
+                margin-left:auto;
+                margin-right:auto;
+                max-width:900px;
+            }
+            #logo {
+                float:left;
+                top:10px;
+                width:40px;
+                height:40px;
+                margin-right:10px;
+                left:10%;
+                cursor:pointer;
+                margin-top:10px;
+            }
+            #title {
+                float:left;
+                width:auto;
+                height:60px;
+                line-height:60px;
+                left:10%;
+                cursor:pointer;
+                color:#3bee0a;
+                font-size:20px;
+                font-weight:700;
+                font-family:"open sans",arial,sans-serif;
+                -webkit-transition: color 0.2s linear;
+                transition: color 0.2s linear;
+            }
+            #title:hover {
+                color:#35d30a;
+            }
+            #buttons {
+                float:right;
+                width:auto;
+                height:60px;
+                right:10%;
+            }
+            .button {
+                position: relative;
+                display: inline-block;
+                height:60px;
+                line-height:60px;
+                width:auto;
+                margin-left: 40px;
+                color:#bbb;
+                font-size:13px;
+                font-family:"open sans",arial,sans-serif;
+                cursor:pointer;
+                -webkit-transition: color 0.2s linear;
+                transition: color 0.2s linear;
+            }
+            .button:hover {
+                color:#85e148;
+            }
+            .button_footer {
+                position: relative;
+                display: inline-block;
+                height:60px;
+                line-height:60px;
+                width:auto;
+                margin-left: 40px;
+                color:#9E9E9E;
+                font-size:13px;
+                font-family:"open sans",arial,sans-serif;
+                cursor:pointer;
+                -webkit-transition: color 0.2s linear;
+                transition: color 0.2s linear;
+            }
+            .button_footer:hover {
+                color:white;
+            }
+            .top {
+                margin-top:60px;
+                left:0;
+                height:auto;
+                width:100%;
+                border-bottom:#E0E0E0 solid 1px;
+                border-top:#E0E0E0 solid 1px;
+                background:#f2f2f2;
+            }
+            .section {
+                left:0;
+                height:auto;
+                width:100%;
+                border-bottom:#E0E0E0 solid 1px;
+            }
+            .wrap {
+                width:80%;
+                height:auto;
+                overflow: auto;
+                margin-left:auto;
+                margin-right:auto;
+                padding-top:80px;
+                margin-bottom:80px;
+                max-width:900px;
+            }
+            .text {
+                float:left;
+                width:45%;
+                height:auto;
+            }
+            .imgs {
+                float:right;
+                width:45%;
+                height:auto;
+            }
+            .text_R {
+                float:right;
+                width:45%;
+                height:auto;
+            }
+            .img_R {
+                float:left;
+                width:45%;
+                height:auto;
+            }
+            .heading {
+                top:0;
+                height:auto;
+                width:100%;
+                color:#4d4c4c;
+                font-size:48px;
+                font-weight:300;
+                line-height:54px;
+                font-family:"open sans",arial,sans-serif;
+                padding-bottom:20px;
+            }
+            .subheading {
+                top:0;
+                height:auto;
+                width:100%;
+                color:grey;
+                font-size:16px;
+                font-weight:300;
+                line-height:25px;
+                font-family:"open sans",arial,sans-serif;
+                margin-bottom:20px;
+            }
+            #top_email {
+                top:0;
+                height:auto;
+                width:100%;
+                margin-bottom:20px;
+            }
+            #press_kit {
+                width:100%;
+                height:60px;
+                line-height:60px;
+                text-align:center;
+                background-color:#85e148;
+                color:white;
+                font-size:13px;
+                font-family:"open sans",arial,sans-serif;
+                cursor:pointer;
+                -webkit-transition: background-color 0.2s linear;
+                transition: background-color 0.2s linear;
+            }
+            #press_kit:hover {
+                background-color:#7fd632;
+            }
+            #footer {
+                width:100%;
+                height:60px;
+                line-height:60px;
+                background-color:#424242;
+                color:#9E9E9E;
+                font-size:13px;
+                font-family:"open sans",arial,sans-serif;
+            }
+            a{text-decoration: none}
+            img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            input {
+                -webkit-appearance: none;
+                box-sizing: border-box;
+                height:100%;
+                width:100%;
+                left:0;
+                top:0;
+                border:1px solid #e5e5e5;
+                color:grey;
+                font-size:16px;
+                font-weight:300;
+                line-height:47px;
+                font-family:"open sans",arial,sans-serif;
+            }
+            input:focus {
+                outline: none;
+                border-color: #ff5746;
+            }
+            .submit {
+                min-width:70px;
+                font-size: 16px;
+                font-weight:300;
+                line-height:0;
+                font-family:"open sans",arial,sans-serif;
+                color:white;
+                text-align:center;
+                background:#85e148;
+                border-bottom: 5px solid #76c628;
+                border-top:none;
+                border-right:none;
+                border-left:none;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 5px;
+                -ms-border-radius: 5px;
+                -o-border-radius: 5px;
+                border-radius: 5px;
+                -webkit-transition: all 0.4s ease 0s;
+                transition: all 0.4s ease 0s;
+                cursor:pointer;
+                font-weight:300;
+            }
+            .submit:hover {
+                background:#7fd632;
+                border-bottom: 5px solid #76c628;
+                -webkit-transition: all 0.4s ease 0s;
+                transition: all 0.4s ease 0s;
+            }
+        </style>
+        
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-59928553-2', 'auto');
+              ga('send', 'pageview');
+            </script>
+        
+    </head>
+    
+    <body onload="onLoad()">
+        <div id="header">
+        <div id="header_wrap">
+            <div id="logo" onclick="scroll('#top')"><img src="files/logo.png" style="text-align:center;" height="40px"></div>
+            <div id="title" onclick="scroll('#top')">Lobby</div>
+            <div id="buttons">
+                <div style="display: inline;" id="about" class="button" onclick="scroll('#section1')">About</div>
+                <div style="display: inline;" id="how" class="button" onclick="scroll('#section3')">How it Works</div>
+                <div style="display: inline;" id="press" class="button" onclick="scroll('#press_kit')">Press Kit</div>
+                <a href="http://www.twitter.com/lobbyspace" target="_blank">
+                    <div id="contact" class="button">Follow</div>
+                </a>
+            </div>
+        </div>
+        </div>
+        <div id="top" class="top">
+            <div id="top_wrap" class="wrap">
+                <div id="top_text" class="text" style="margin-bottom: 20px; width: 45%;">
+                    <div id="top_heading" class="heading">Ready up for games with friends.</div>
+                    <div id="top_subheading" class="subheading">Lobby makes it easy to set up game sessions with friends any day of the week.<p>Say goodbye to spammy group chats and “maybe” responses. With Lobby, one person creates an event and invites friends. If enough people ready up, everyone gets notified that the event is going down.</p><p>Launching soon, sign up for updates.</p></div>
+                    <div id="top_email">
+                    <!--START OF MAILCHIMP-->
+                    <!-- Begin MailChimp Signup Form -->
+<div id="mc_embed_signup">
+<form action="//GroupPay.us10.list-manage.com/subscribe/post?u=8f5b4b4ca031c35ec8f6ef0fb&amp;id=3b1871519e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+    <div id="mc_embed_signup_scroll">
+	
+<div class="mc-field-group" style="float:left; width:70%">
+	<label for="mce-EMAIL"></label>
+	<input value="Email address" style="padding-left:8px;" name="EMAIL" class="required email" id="mce-EMAIL" onclick='javascript: this.value = ""' type="email">
+</div>
+	<div id="mce-responses" class="clear">
+		<div class="response" id="mce-error-response" style="display:none"></div>
+		<div class="response" id="mce-success-response" style="display:none"></div>
+	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;"><input name="b_8f5b4b4ca031c35ec8f6ef0fb_3b1871519e" tabindex="-1" type="text"></div>
+    <div class="clear" style="float:right; height:50px; width:25%;">
+        <input class="submit" value="Ready Up" name="subscribe" id="mc-embedded-subscribe" type="submit"></div>
+    </div>
+</form>
+</div>
+
+<!--End mc_embed_signup-->
+                    <!--END OF MAILCHIMP-->
+                    </div>
+                </div>
+                <div style="width: 45%;" id="top_img" class="imgs">
+                    <img src="files/Screenshot_1.png" style="text-align:center;" width="80%">
+                </div>
+            </div>
+        </div>
+        <div id="section1" class="section" style="background-color:#7cd144">
+            <div id="section1_wrap" class="wrap">
+                <div style="width: 45%;" id="section1_text" class="text">
+                    <div id="section1_heading" class="heading" style="color:white; font-size:35px;">Convenient</div>
+                    <div id="section1_subheading" class="subheading" style="color:white;">Whether you’re at work, at home, or on the go, opting into an event is simple. You’ll receive a notification if it’s happening and you can forget about it if not. No sweat.</div>
+                </div>
+                <div style="width: 45%;" id="section1a_text" class="text_R">
+                    <div id="section1a_heading" class="heading" style="color:white; font-size:35px;">Play more games</div>
+                    <div id="section1a_subheading" class="subheading" style="color:white;">With open-invitation events, you’re always likely to get enough players to try out that game you just got on sale. Don’t waste time trying to get everyone online, just play!</div>
+                </div>
+            </div>
+        </div>
+        <div id="section3" class="section">
+            <div id="section3_wrap" class="wrap">
+                <div style="width: 45%;" id="section3_text" class="text">
+                    <div id="section3_heading" class="heading">Word or Phrase.</div>
+                    <div id="section3_subheading" class="subheading">Single-origin coffee blog actually, pickled chambray irony Portland distillery. Raw denim fap occupy kale chips. Maybe a bit longer here... and done.<p>Truffaut ugh distillery, chillwave forage raw denim whatever four dollar toast Neutra Vice lomo cornhole flexitarian.</p><p>Leggings authentic put a bird on it, lumbersexual Brooklyn lomo cronut you probably haven't heard of them sartorial whatever farm-to-table Thundercats.</p><p>Direct trade four loko mixtape Pinterest. </p></div>
+                </div>
+                <div style="width: 45%;" id="section3_img" class="imgs">
+                    <img src="files/Screenshot_2.png" style="text-align:center;" width="80%">
+                </div>
+            </div>
+        </div>
+        <div id="section4" class="section">
+            <div id="section4_wrap" class="wrap">
+                <div style="width: 45%;" id="section4_text" class="text_R">
+                    <div id="section4_heading" class="heading">Another phrase. You know it.</div>
+                    <div id="section4_subheading" class="subheading">Synth gluten-free farm-to-table squid, Truffaut hoodie 90's. Chia Godard jean shorts beard. Freegan selvage vinyl, VHS literally roof party next level biodiesel banjo normcore. Mumblecore Shoreditch trust fund, chillwave YOLO normcore stumptown direct trade. </div>
+                </div>
+                <div style="width: 45%;" id="section4_img" class="img_R">
+                    <img src="files/Screenshot_3.png" style="text-align:center;" width="80%">
+                </div>
+            </div>
+        </div>
+        <a href="http://www.lobby.space/Group_Pay_Press_Kit.zip">
+            <div id="press_kit">Press Kit</div>
+        </a>
+        <div id="footer">
+            <div id="footer_wrap">
+                © 2015 | Lobbyspace
+                <div id="buttons">
+                    <a href="mailto:hello@lobby.space">
+                        <div id="contact_footer" class="button_footer">Contact</div>
+                    </a>
+                    <a href="http://www.twitter.com/lobbyspace" target="_blank">
+                        <div style="display: inline;" id="follow_footer" class="button_footer">Follow</div>
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fwww.lobby.space%2F&amp;text=Ready%20up%20to%20play%20games%20with%20Lobby!" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=300,toolbar=1,resizable=0'); return false;">
+                        <div style="display: inline;" id="tweet_footer" class="button_footer">Tweet</div>
+                    </a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.lobby.space%2F" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=300,toolbar=1,resizable=0'); return false;">
+                        <div style="display: inline;" id="share_footer" class="button_footer">Share</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+</body></html>
