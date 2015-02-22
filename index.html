@@ -8,10 +8,12 @@
         <meta name="Description" content="Lobby lets you and your friends ready up for console, PC, and tabletop games. It’s the easiest way to plan a gaming session.">
         <meta name="Keywords" content="Ready up, video game, kickstart, event, tipping point, tilt, board games, pc, wii, xbox, playstation, friends, plan, organize, session">
         <meta name="" content="Ready up, video game, kickstart, event, tipping point, tilt, board games, pc, wii, xbox, playstation, friends, plan, organize, session">
-        <title>Lobby | Ready up for game sessions</title>
-        
+
+        <title>Lobby | Ready up for games with friends</title>
         <link href="files/style.css" rel="stylesheet" type="text/css">
-        <script type="text/javascript" src="files/jquery_002.js"></script>
+
+        <script type="text/javascript" src="files/jquery.min.js"></script>
+        <script type="text/javascript" src="files/jquery.scrollTo-min.js"></script>
         
         <script>
             function scroll(here) {$.scrollTo( here, 800, {offset: {top:-60, left:0} });}
@@ -345,10 +347,13 @@
             <div id="logo" onclick="scroll('#top')"><img src="files/logo.png" style="text-align:center;" height="40px"></div>
             <div id="title" onclick="scroll('#top')">Lobby</div>
             <div id="buttons">
-                <div style="display: inline;" id="about" class="button" onclick="scroll('#section1')">About</div>
-                <div style="display: inline;" id="how" class="button" onclick="scroll('#section3')">How it Works</div>
+                <div id="about" class="button" onclick="scroll('#section1')" style="display: inline;">About</div>
+                <div id="how" class="button" onclick="scroll('#section3')" style="display: inline;">How it Works</div>
+                <div id="press" class="button" onclick="scroll('#press_kit')" style="display: inline;">Press Kit</div>
+
                 <a href="http://blog.lobby.space" target="_blank">
                     <div id="contact" class="button">Blog</div>
+                </a>
                 <a href="http://www.twitter.com/lobbyspace" target="_blank">
                     <div id="contact" class="button">Follow</div>
                 </a>
@@ -359,12 +364,12 @@
             <div id="top_wrap" class="wrap">
                 <div id="top_text" class="text" style="margin-bottom: 20px; width: 45%;">
                     <div id="top_heading" class="heading">Ready up for games with friends.</div>
-                    <div id="top_subheading" class="subheading">Lobby makes it easy to set up game sessions with friends any day of the week.<p>Say goodbye to spammy group chats and “maybe” responses. With Lobby, one person creates an event and invites friends. If enough people ready up, everyone gets notified that the event is going down.</p><p>Launching soon, sign up for updates.</p></div>
+                    <div id="top_subheading" class="subheading">Lobby makes it easy to set up game sessions with friends any day of the week.<p>Say goodbye to spammy group chats and &QUOT;maybe&QUOT; responses. With Lobby, one person creates an event and invites friends. If enough people ready up, everyone gets notified that the event is going down.</p><p>Launching soon, sign up for updates.</p></div>
                     <div id="top_email">
                     <!--START OF MAILCHIMP-->
                     <!-- Begin MailChimp Signup Form -->
 <div id="mc_embed_signup">
-<form action="//space.us10.list-manage.com/subscribe/post?u=d507ec419a9e29ef180bbb7e8&amp;id=27bd8dbefe" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+<form action="//space.us10.list-manage.com/subscribe/post?u=d507ec419a9e29ef180bbb7e8&amp;id=27bd8dbefe" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate=''>
     <div id="mc_embed_signup_scroll">
 	
 <div class="mc-field-group" style="float:left; width:70%">
@@ -425,7 +430,7 @@
                 </div>
             </div>
         </div>
-        <a href="http://www.lobby.space/Group_Pay_Press_Kit.zip">
+        <a href="http://www.lobby.space/Lobby_Press_Kit.zip">
             <div id="press_kit">Press Kit</div>
         </a>
         <div id="footer">
